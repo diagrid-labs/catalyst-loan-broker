@@ -10,6 +10,8 @@ from dapr.clients.grpc._response import TopicEventResponse
 from model.cloud_events import CloudEvent
 
 statestore_component = os.getenv('QUOTE_AGGREGATE_TABLE', 'kvstore')
+pubsub_component = os.getenv('PUBSUB_COMPONENT', 'aws-pubsub')
+topic_name = os.getenv('TOPIC_NAME', 'quotes')
 
 logging.basicConfig(level=logging.INFO)
 
@@ -62,7 +64,7 @@ def init_sub():
 
         try:
             close_fn = d.subscribe_with_handler(
-                    pubsub_name='aws-pubsub', topic='quotes', handler_fn=loan_quotes, dead_letter_topic='undeliverable')
+                    pubsub_name=pubsub_component, topic=topic_name, handler_fn=loan_quotes, dead_letter_topic='undeliverable')
         
             app.state.close_fn_handler = close_fn
 

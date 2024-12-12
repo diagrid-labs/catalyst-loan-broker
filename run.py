@@ -255,37 +255,10 @@ def main():
     for service_name in service_name_list:
         create_appid(prj_name, service_name)
 
-    # # CREATE DYNAMODB TABLE
-    # for service_name in service_name_list:
-    #     print(f"folder name is {service_name}")
-    #     create_dynamodb_table(f"{service_name}-table")
-
     #for service_name in service_name_list:
         check_appid_status(project_name, service_name)
 
-    # CREATE PUBSUB COMPONENT
-    # component_type = "pubsub"
-    # component_name = "aws-pubsub"
-
-    # scopes = ', '.join(f'"{service_name}"' for service_name in service_name_list)
-    # print(f"scopes are {scopes}")
-
-    # create_component(prj_name, component_name, component_type, scopes)
-
-    # # CREATE STATE CONNECTION
-    # for service_name in service_name_list:
-    #     component_name = f"{service_name}-table"
-    #     component_type = "state"
-    #     scope = service_name
-    #     table_name = f"{service_name}-table"
-
-    #     create_component(prj_name, component_name, component_type, scope,
-    #                      table_name)
-
     subscription_name = "quotes"
-
-    # CREATING SUBSCRIPTION
-    # create_subscription(prj_name, subscription_name)
 
     set_default_project(prj_name)
 
