@@ -18,7 +18,7 @@ for app in config_data['apps']:
     if app['appId'] == 'quote-aggregator':
         app['appPort'] = 5002
         app['workDir'] = './services/quote-aggregator'
-        app['command'] = ['uvicorn', 'main:app', '--port', '5002']
+        app['command'] = ['uvicorn', 'main-streaming:app', '--port', '5002']
     if app['appId'] == 'riverstone-bank':
         app['appPort'] = 5003
         app['workDir'] = './services/riverstone-bank'
